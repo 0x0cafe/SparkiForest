@@ -1,7 +1,7 @@
 # SparkiForest
 ```
-//加载数据
-val lines = sc.textFile("data/data.csv")
+//加载数据（）
+val lines = sc.textFile("hdfs://.../data/data.csv")
 val data = lines.map(line => line.split(",")).map(s => s.slice(1,s.length))
 val header = data.first()
 val rows = data.filter(line => line(0) != header(0)).map(s => s.map(_.toDouble))
