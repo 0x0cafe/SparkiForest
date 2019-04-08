@@ -10,7 +10,7 @@ object iForestTest {
         val sc = new SparkContext(conf)
 
         Random.setSeed(2018)
-        val lines = sc.textFile("data/spark_if_train.csv")
+        val lines = sc.textFile("data/data.csv")
         val data = lines.map(line => line.split(",")).map(s => s.slice(1,s.length))
         val header = data.first()
         val rows = data.filter(line => line(0) != header(0)).map(s => s.map(_.toDouble))
